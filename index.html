@@ -33,45 +33,86 @@
     border: none;
     border-radius: 10px;
   }
-  /* Full overlay blocks all clicks */
-  .overlay {
+
+  /* Top overlay */
+  .overlay-top {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100px; /* adjust height */
     z-index: 2;
     pointer-events: auto;
   }
-  /* Small clickable center area */
+
+  /* Bottom overlay */
+  .overlay-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* adjust height */
+    z-index: 2;
+    pointer-events: auto;
+  }
+
+  /* Left overlay (center-left) */
+  .overlay-left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: calc(50% - 100px); /* width before center clickable area */
+    height: 120px; /* same as clickable height */
+    transform: translateY(-50%);
+    z-index: 2;
+    pointer-events: auto;
+  }
+
+  /* Right overlay (center-right) */
+  .overlay-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: calc(50% - 100px); /* width after center clickable area */
+    height: 120px;
+    transform: translateY(-50%);
+    z-index: 2;
+    pointer-events: auto;
+  }
+
+  /* Center clickable area */
   .clickable-center {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 200px;   /* adjust width of clickable area */
-    height: 120px;  /* adjust height of clickable area */
+    width: 200px;
+    height: 120px;
     transform: translate(-50%, -50%);
     pointer-events: none; /* clicks pass through to iframe */
     z-index: 3;
   }
+
 </style>
 </head>
 <body>
-  <!-- Video title -->
   <div class="title">Satin Mohatsav 2025</div>
 
   <div class="container">
-    <!-- Full video iframe -->
     <iframe 
       src="https://www.youtube.com/embed/A1GnD9QyF8E"
       allowfullscreen>
     </iframe>
 
-    <!-- Full overlay blocking clicks -->
-    <div class="overlay">
-      <!-- Small center area allows clicks -->
-      <div class="clickable-center"></div>
-    </div>
+    <!-- Top and bottom overlays -->
+    <div class="overlay-top"></div>
+    <div class="overlay-bottom"></div>
+
+    <!-- Center-left and center-right overlays -->
+    <div class="overlay-left"></div>
+    <div class="overlay-right"></div>
+
+    <!-- Clickable center area -->
+    <div class="clickable-center"></div>
   </div>
 </body>
 </html>
