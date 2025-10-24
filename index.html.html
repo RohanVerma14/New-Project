@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satin Mohatsav 2025</title>
+<style>
+  body {
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+  }
+  iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    border-radius: 10px;
+  }
+  /* Upper overlay (blocks top part) */
+  .overlay-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 2;
+    background: rgba(0,0,0,0);
+    pointer-events: auto;
+  }
+  /* Bottom-right overlay (blocks bottom-right corner) */
+  .overlay-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    z-index: 2;
+    background: rgba(0,0,0,0);
+    pointer-events: auto;
+  }
+</style>
+</head>
+<body>
+  <!-- Video title -->
+  <div class="title">Satin Mohatsav 2025</div>
+
+  <div class="container">
+    <!-- Full video iframe -->
+    <iframe 
+      src="https://www.youtube.com/embed/A1GnD9QyF8E"
+      allowfullscreen>
+    </iframe>
+
+    <!-- Upper part unclickable -->
+    <div class="overlay-top"></div>
+
+    <!-- Bottom-right corner unclickable -->
+    <div class="overlay-bottom-right"></div>
+  </div>
+</body>
+</html>
