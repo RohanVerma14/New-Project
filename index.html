@@ -11,22 +11,22 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background: #000; /* black background visible outside video */
+    background: #000;
   }
 
-  /* Container to rotate the video */
+  /* Wrapper for rotated video */
   .video-wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 70vw;   /* video width smaller than screen */
-    height: 70vh;  /* video height smaller than screen */
+    width: 70vw;
+    height: 70vh;
     transform: translate(-50%, -50%) rotate(90deg);
     transform-origin: center center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000; /* ensures black behind video */
+    background: #000;
   }
 
   iframe {
@@ -35,14 +35,59 @@
     border: none;
     display: block;
   }
+
+  /* Overlays to block clicks except center */
+  .overlay-top, .overlay-bottom, .overlay-left, .overlay-right {
+    position: fixed;
+    background: rgba(0,0,0,0); /* invisible but blocks clicks */
+    z-index: 2;
+    pointer-events: auto;
+  }
+
+  .overlay-top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(50% - 35vh); /* top area above video */
+  }
+
+  .overlay-bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(50% - 35vh); /* bottom area below video */
+  }
+
+  .overlay-left {
+    top: calc(50% - 35vh);
+    left: 0;
+    width: calc(50% - 35vw); /* left area beside video */
+    height: 70vh;
+  }
+
+  .overlay-right {
+    top: calc(50% - 35vh);
+    right: 0;
+    width: calc(50% - 35vw); /* right area beside video */
+    height: 70vh;
+  }
 </style>
 </head>
 <body>
+
+  <!-- Video wrapper -->
   <div class="video-wrapper">
     <iframe
       src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f"
       allowfullscreen>
     </iframe>
   </div>
+
+  <!-- Click-blocking overlays -->
+  <div class="overlay-top"></div>
+  <div class="overlay-bottom"></div>
+  <div class="overlay-left"></div>
+  <div class="overlay-right"></div>
+
 </body>
 </html>
