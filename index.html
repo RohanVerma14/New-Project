@@ -11,22 +11,22 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background: #000;
+    background: #000; /* black background visible outside video */
   }
 
-  /* Wrapper for rotated video */
+  /* Container to rotate the video */
   .video-wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 70vw;
-    height: 70vh;
+    width: 70vw;   /* video width smaller than screen */
+    height: 70vh;  /* video height smaller than screen */
     transform: translate(-50%, -50%) rotate(90deg);
     transform-origin: center center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000;
+    background: #000; /* ensures black behind video */
   }
 
   iframe {
@@ -36,28 +36,31 @@
     display: block;
   }
 
-  /* Overlays inside the video frame */
+  /* Overlays inside the video frame to block clicks except center */
   .overlay-top, .overlay-bottom, .overlay-left, .overlay-right {
     position: absolute;
-    background: rgba(0,0,0,0);
+    background: rgba(0,0,0,0); /* invisible but blocks clicks */
     z-index: 2;
     pointer-events: auto;
   }
 
+  /* Top overlay inside frame */
   .overlay-top {
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(50% - 35%);
+    height: calc(50% - 35%); /* top area above center */
   }
 
+  /* Bottom overlay inside frame */
   .overlay-bottom {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: calc(50% - 35%);
+    height: calc(50% - 35%); /* bottom area below center */
   }
 
+  /* Left overlay inside frame */
   .overlay-left {
     top: calc(50% - 35%);
     left: 0;
@@ -65,6 +68,7 @@
     height: 70%;
   }
 
+  /* Right overlay inside frame */
   .overlay-right {
     top: calc(50% - 35%);
     right: 0;
@@ -87,14 +91,13 @@
 </head>
 <body>
 
-  <!-- Video wrapper -->
   <div class="video-wrapper">
     <iframe
       src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f"
       allowfullscreen>
     </iframe>
 
-    <!-- Click-blocking overlays inside frame -->
+    <!-- Overlays inside the frame -->
     <div class="overlay-top"></div>
     <div class="overlay-bottom"></div>
     <div class="overlay-left"></div>
