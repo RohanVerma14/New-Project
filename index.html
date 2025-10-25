@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Rotated Video Fullscreen Mobile</title>
+<title>Rotated Video Fullscreen</title>
 <style>
   html, body {
     margin: 0;
@@ -14,7 +14,7 @@
     background: #000;
   }
 
-  /* Video wrapper rotated 90deg always */
+  /* Video wrapper rotated 90deg on all devices */
   .video-wrapper {
     position: fixed;
     top: 50%;
@@ -31,7 +31,7 @@
 
   /* Video frame */
   iframe {
-    width: 120vh;   /* keeps rotation sizing */
+    width: 120vh;   /* width respects rotation */
     height: 120vw;
     border: none;
     display: block;
@@ -60,13 +60,13 @@
     z-index: 3;
   }
 
-  /* Mobile adjustments: keep rotation but maximize video inside screen */
+  /* Mobile adjustments: keep rotation but fill screen */
   @media (max-width: 768px) {
     iframe {
-      width: 95vh;  /* fills height due to rotation */
+      width: 95vh;  /* fill screen respecting rotation */
       height: 95vw;
     }
-    /* Remove overlays on mobile for full clickable center */
+    /* Remove overlays on mobile so whole video clickable */
     .overlay, .clickable-center { display: none; }
   }
 </style>
@@ -82,4 +82,5 @@
     <!-- Overlays for desktop -->
     <div class="overlay overlay-top"></div>
     <div class="overlay overlay-bottom"></div>
-    <div
+    <div class="overlay overlay-left"></div>
+    <div class="o
