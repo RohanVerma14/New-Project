@@ -14,33 +14,33 @@
     background: #000;
   }
 
-  /* Outer wrapper for border */
+  /* Outer wrapper for outline */
   .video-border {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 115vh;   /* slightly larger to cover screen */
+    width: 115vh;  /* slightly larger to cover screen */
     height: 115vw;
     transform: translate(-50%, -50%) rotate(90deg);
     transform-origin: center center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000;
-    box-sizing: content-box; /* important so size isn't affected by inner border */
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 8px; /* smaller bottom padding for thinner border */
+    box-sizing: content-box;
+    padding-top: 25px;     /* thicker top border */
+    padding-left: 25px;    /* thicker left border */
+    padding-right: 25px;   /* thicker right border */
+    padding-bottom: 15px;  /* slightly thinner bottom border */
+    background: #000;      /* black outline effect */
   }
 
   .video-inner {
     width: 100%;
     height: 100%;
-    background: #000; /* black border effect */
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #000;
   }
 
   iframe {
