@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Rotated Video with Black Border</title>
+<title>Rotated Video with Visible Black Border</title>
 <style>
   html, body {
     margin: 0;
@@ -14,13 +14,13 @@
     background: #000; /* black background */
   }
 
-  /* Video wrapper with rotation and black border */
+  /* Video wrapper with rotation */
   .video-wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 120vh;  
-    height: 120vw;
+    width: 100vw;  
+    height: 100vh;
     transform: translate(-50%, -50%) rotate(90deg);
     transform-origin: center center;
     display: flex;
@@ -29,12 +29,13 @@
     background: #000; /* black border around video */
   }
 
-  /* Video frame smaller than wrapper to show black border */
+  /* Smaller iframe to show black border */
   iframe {
-    width: 90%;    /* smaller than wrapper to show black outside */
-    height: 90%;
+    width: 80%;   /* smaller than wrapper */
+    height: 80%;  /* smaller than wrapper */
     border: none;
     display: block;
+    background: #000;
   }
 </style>
 </head>
