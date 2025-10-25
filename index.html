@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Fullscreen Rotated Video</title>
+<title>Fullscreen Rotated Video (Vertical Stretch)</title>
 <style>
   html, body {
     margin: 0;
@@ -11,24 +11,23 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background: #000; /* background in case of slight overflow */
+    background: #000; /* black bars on sides if needed */
   }
 
   .video-wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 120vh;  /* bigger than viewport to cover rotated screen */
-    height: 120vw; /* bigger than viewport to cover rotated screen */
+    height: 100vh; /* stretch full height */
     transform: translate(-50%, -50%) rotate(90deg);
     transform-origin: center center;
   }
 
   iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+    height: 100%;      /* fill the wrapper vertically */
+    width: auto;       /* maintain aspect ratio, don't stretch horizontally */
     display: block;
+    border: none;
   }
 </style>
 </head>
