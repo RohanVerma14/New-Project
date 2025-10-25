@@ -11,37 +11,22 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background: #000;
+    background: #000; /* black background visible outside video */
   }
 
-  /* Outer border wrapper */
-  .video-border {
+  /* Container to rotate the video */
+  .video-wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 120vh;  /* larger to show border */
-    height: 120vw;
+    width: 70vw;   /* video width smaller than screen */
+    height: 70vh;  /* video height smaller than screen */
     transform: translate(-50%, -50%) rotate(90deg);
     transform-origin: center center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000; /* black border effect */
-    padding-top: 35px;     /* more top border */
-    padding-left: 35px;    /* more left border */
-    padding-right: 35px;   /* more right border */
-    padding-bottom: 20px;  /* bottom slightly smaller */
-    box-sizing: content-box;
-  }
-
-  /* Inner container with smaller video */
-  .video-inner {
-    width: 70%;   /* smaller video width */
-    height: 70%;  /* smaller video height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000;
+    background: #000; /* ensures black behind video */
   }
 
   iframe {
@@ -53,13 +38,11 @@
 </style>
 </head>
 <body>
-  <div class="video-border">
-    <div class="video-inner">
-      <iframe
-        src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f"
-        allowfullscreen>
-      </iframe>
-    </div>
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f"
+      allowfullscreen>
+    </iframe>
   </div>
 </body>
 </html>
