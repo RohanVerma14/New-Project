@@ -3,120 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YouTube Video with Title</title>
+<title>Satin Mahotsav 2025</title>
 <style>
   body {
+    margin: 0;
+    overflow: hidden;
     background: #000;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    color: #fff;
-    font-family: Arial, sans-serif;
-  }
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  .container {
-    position: relative;
-    width: 80%;
-    max-width: 800px;
-    transform: rotate(90deg);
-    transiton: transform 0.5s ease;
-  }
-  iframe {
-    width: 100%;
-    height: 450px;
-    border: none;
-    border-radius: 10px;
   }
 
-  /* Top overlay */
-  .overlay-top {
+  .video-container {
+    position: relative;
+    width: 100vh; /* since we rotate, width = viewport height */
+    height: 100vw; /* and height = viewport width */
+    transform: rotate(90deg);
+    transform-origin: center center;
+    overflow: hidden;
+  }
+
+  iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100px;
-    z-index: 2;
-    pointer-events: auto;
+    height: 100%;
+    border: none;
   }
 
-  /* Bottom overlay */
-  .overlay-bottom {
+  /* Optional: title overlay */
+  .title {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    top: 10px;
     width: 100%;
-    height: 100px;
-    z-index: 2;
-    pointer-events: auto;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    z-index: 5;
   }
-
-  /* Left overlay (center-left) */
-  .overlay-left {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: calc(50% - 100px);
-    height: 120px;
-    transform: translateY(-50%);
-    z-index: 2;
-    pointer-events: auto;
-  }
-
-  /* Right overlay (center-right) */
-  .overlay-right {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: calc(50% - 100px);
-    height: 120px;
-    transform: translateY(-50%);
-    z-index: 2;
-    pointer-events: auto;
-  }
-
-  /* Center clickable area */
-  .clickable-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200px;
-    height: 120px;
-    transform: translate(-50%, -50%);
-    pointer-events: none; /* clicks pass through to iframe */
-    z-index: 3;
-  }
-
 </style>
 </head>
 <body>
   <div class="title">Satin Mahotsav 2025</div>
 
-  <div class="container">
-    <iframe 
+  <div class="video-container">
+    <iframe
       src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f"
       allowfullscreen>
     </iframe>
-
-    <!-- Top and bottom overlays -->
-    <div class="overlay-top"></div>
-    <div class="overlay-bottom"></div>
-
-    <!-- Center-left and center-right overlays -->
-    <div class="overlay-left"></div>
-    <div class="overlay-right"></div>
-
-    <!-- Clickable center area -->
-    <div class="clickable-center"></div>
   </div>
 </body>
 </html>
-
-
