@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Rotated Video with Clickable Center</title>
+<title>Rotated Video Clickable Center</title>
 <style>
   html, body {
     margin: 0;
@@ -29,10 +29,10 @@
     background: #000; /* black border around video */
   }
 
-  /* Video frame size stays same as before */
+  /* Video frame stays exactly the same as before */
   iframe {
-    width: 80%;
-    height: 80%;
+    width: 120vh;   /* same as your last working code */
+    height: 120vw;  /* same as your last working code */
     border: none;
     display: block;
     background: #000;
@@ -78,7 +78,7 @@
     height: 80%;
   }
 
-  /* Center clickable area stays same as iframe */
+  /* Center clickable area exactly same as iframe */
   .clickable-center {
     position: absolute;
     top: 10%;
@@ -88,6 +88,7 @@
     pointer-events: none; /* clicks pass through to iframe */
     z-index: 3;
   }
+
 </style>
 </head>
 <body>
