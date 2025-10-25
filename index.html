@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Rotated Video Mobile & Desktop</title>
+<title>Rotated Fullscreen Video with Black Border</title>
 <style>
   html, body {
     margin: 0;
@@ -11,10 +11,10 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #000;
+    background: #000; /* black background visible */
   }
 
-  /* Wrapper that rotates video */
+  /* Video wrapper rotated 90deg */
   .video-wrapper {
     position: fixed;
     top: 50%;
@@ -26,18 +26,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #000; /* black border */
+  }
+
+  /* Iframe with black border visible on all sides */
+  iframe {
+    width: 95vh;   /* slightly smaller than wrapper to show black border */
+    height: 95vw;
+    border: none;
+    display: block;
     background: #000;
   }
 
-  /* Rotated video iframe */
-  iframe {
-    width: min(120vh, 95vw);   /* scale properly on mobile & desktop */
-    height: min(120vw, 95vh);
-    border: none;
-    display: block;
-  }
-
-  /* Desktop overlays (keep center clickable) */
+  /* Desktop overlays to block clicks except center */
   .overlay {
     position: absolute;
     background: rgba(0,0,0,0);
@@ -45,37 +46,14 @@
     pointer-events: auto;
   }
 
-  .overlay-top { top: 0; left: 0; width: 100%; height: 10%; }
-  .overlay-bottom { bottom: 0; left: 0; width: 100%; height: 10%; }
-  .overlay-left { top: 10%; left: 0; width: 10%; height: 80%; }
-  .overlay-right { top: 10%; right: 0; width: 10%; height: 80%; }
-  .clickable-center { position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; pointer-events: none; z-index: 3; }
+  .overlay-top { top: 0; left: 0; width: 100%; height: 5%; }
+  .overlay-bottom { bottom: 0; left: 0; width: 100%; height: 5%; }
+  .overlay-left { top: 5%; left: 0; width: 5%; height: 90%; }
+  .overlay-right { top: 5%; right: 0; width: 5%; height: 90%; }
 
-  /* Mobile adjustments */
-  @media (max-width: 768px) {
-    iframe {
-      width: 95vw;
-      height: 95vh;
-    }
-    .overlay, .clickable-center { display: none; } /* full screen clickable */
-  }
-</style>
-</head>
-<body>
-
-  <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f"
-      allowfullscreen>
-    </iframe>
-
-    <!-- Desktop overlays -->
-    <div class="overlay overlay-top"></div>
-    <div class="overlay overlay-bottom"></div>
-    <div class="overlay overlay-left"></div>
-    <div class="overlay overlay-right"></div>
-    <div class="clickable-center"></div>
-  </div>
-
-</body>
-</html>
+  .clickable-center {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%
