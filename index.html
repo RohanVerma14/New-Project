@@ -31,14 +31,14 @@
 
   /* Video frame for desktop */
   iframe {
-    width: 120vh;
+    width: 120vh;   /* keeps same as your previous size */
     height: 120vw;
     border: none;
     display: block;
     background: #000;
   }
 
-  /* Overlays to block clicks outside center */
+  /* Overlays to block clicks outside center on desktop */
   .overlay {
     position: absolute;
     background: rgba(0,0,0,0); 
@@ -66,10 +66,10 @@
       transform: translate(-50%, -50%) rotate(0deg);
     }
     iframe {
-      width: 100vw;  /* full width on mobile */
-      height: 100vh; /* full height on mobile */
+      width: 95vw;  /* bigger width on mobile */
+      height: 95vh; /* bigger height on mobile */
     }
-    /* Remove overlays on mobile to allow full screen clicks */
+    /* Remove overlays on mobile for full screen clicks */
     .overlay, .clickable-center { display: none; }
   }
 </style>
