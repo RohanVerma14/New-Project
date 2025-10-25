@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Fullscreen Rotated Video</title>
+<title>Full Screen Rotated Video</title>
 <style>
   html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
     height: 100%;
+    width: 100%;
     overflow: hidden;
     background: #000;
   }
@@ -18,31 +18,29 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 100%;
+    width: 120vh;   /* make slightly larger to cover all screen on rotation */
+    height: 120vw;
     transform: translate(-50%, -50%) rotate(90deg);
     transform-origin: center center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   iframe {
-    width: min(100vw, 100vh);
-    height: min(100vw, 100vh);
-    border: none;
-    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 10;
   }
 </style>
 </head>
 <body>
-
   <div class="video-wrapper">
     <iframe
-      src="https://www.youtube.com/embed/nj-bBUrox4k?controls=0&modestbranding=1&rel=0"
+      src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f"
       allowfullscreen>
     </iframe>
   </div>
-
 </body>
 </html>
+
