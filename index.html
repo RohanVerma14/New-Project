@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Rotated YouTube Video</title>
+<title>Fullscreen Rotated YouTube Video</title>
 <style>
   html, body {
     margin: 0;
@@ -14,19 +14,15 @@
     background: #000;
   }
 
-  /* Video wrapper with fixed black border */
+  /* Fullscreen rotated video */
   .video-wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: calc(100vw - 20px);   /* leave 10px black border each side */
-    height: calc(100vh - 20px);  /* leave 10px black border top/bottom */
+    width: 100vw;
+    height: 100vh;
     transform: translate(-50%, -50%) rotate(90deg);
     transform-origin: center center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000;
   }
 
   iframe {
