@@ -2,26 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Satin Mahotsav 2025</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Full Screen Rotated Video</title>
 <style>
-  body {
+  html, body {
     margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
     background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
   }
 
-  .video-container {
-    position: relative;
-    width: 100vh; /* since we rotate, width = viewport height */
-    height: 100vw; /* and height = viewport width */
-    transform: rotate(90deg);
+  .video-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 120vh;   /* make slightly larger to cover all screen on rotation */
+    height: 120vw;
+    transform: translate(-50%, -50%) rotate(90deg);
     transform-origin: center center;
-    overflow: hidden;
   }
 
   iframe {
@@ -32,24 +32,10 @@
     height: 100%;
     border: none;
   }
-
-  /* Optional: title overlay */
-  .title {
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    text-align: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    z-index: 5;
-  }
 </style>
 </head>
 <body>
-  <div class="title">Satin Mahotsav 2025</div>
-
-  <div class="video-container">
+  <div class="video-wrapper">
     <iframe
       src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f"
       allowfullscreen>
