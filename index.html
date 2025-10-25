@@ -17,8 +17,8 @@
   /* Video wrapper rotated 90deg */
   .video-wrapper {
     position: fixed;
-    top: 60%;
-    left: 60%;
+    top: 50%;
+    left: 50%;
     width: 100vw;
     height: 100vh;
     transform: translate(-50%, -50%) rotate(90deg);
@@ -56,7 +56,37 @@
     top: 5%;
     left: 5%;
     width: 90%;
-    height: 90%
+    height: 90%;
+    pointer-events: none;
+    z-index: 3;
+  }
 
+  /* Mobile: remove overlays so whole video is clickable */
+  @media (max-width: 768px) {
+    iframe {
+      width: 95vh;
+      height: 95vw;
+    }
+    .overlay, .clickable-center { display: none; }
+  }
+</style>
+</head>
+<body>
 
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/nj-bBUrox4k?controls=0&modestbranding=1&rel=0"
+      allowfullscreen>
+    </iframe>
 
+    <!-- Overlays for desktop only -->
+    <div class="overlay overlay-top"></div>
+    <div class="overlay overlay-bottom"></div>
+    <div class="overlay overlay-left"></div>
+    <div class="overlay overlay-right"></div>
+
+    <div class="clickable-center"></div>
+  </div>
+
+</body>
+</html>
