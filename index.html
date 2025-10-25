@@ -36,10 +36,10 @@
     display: block;
   }
 
-  /* Overlays to block clicks except center */
+  /* Overlays inside the video frame */
   .overlay-top, .overlay-bottom, .overlay-left, .overlay-right {
-    position: fixed;
-    background: rgba(0,0,0,0); /* invisible but blocks clicks */
+    position: absolute;
+    background: rgba(0,0,0,0);
     z-index: 2;
     pointer-events: auto;
   }
@@ -48,28 +48,40 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(50% - 35vh); /* top area above video */
+    height: calc(50% - 35%);
   }
 
   .overlay-bottom {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: calc(50% - 35vh); /* bottom area below video */
+    height: calc(50% - 35%);
   }
 
   .overlay-left {
-    top: calc(50% - 35vh);
+    top: calc(50% - 35%);
     left: 0;
-    width: calc(50% - 35vw); /* left area beside video */
-    height: 70vh;
+    width: calc(50% - 35%);
+    height: 70%;
   }
 
   .overlay-right {
-    top: calc(50% - 35vh);
+    top: calc(50% - 35%);
     right: 0;
-    width: calc(50% - 35vw); /* right area beside video */
-    height: 70vh;
+    width: calc(50% - 35%);
+    height: 70%;
+  }
+
+  /* Center clickable area passes clicks to iframe */
+  .clickable-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;   /* central clickable area width */
+    height: 30%;  /* central clickable area height */
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none; /* clicks pass through to iframe */
   }
 </style>
 </head>
@@ -81,13 +93,16 @@
       src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f"
       allowfullscreen>
     </iframe>
-  </div>
 
-  <!-- Click-blocking overlays -->
-  <div class="overlay-top"></div>
-  <div class="overlay-bottom"></div>
-  <div class="overlay-left"></div>
-  <div class="overlay-right"></div>
+    <!-- Click-blocking overlays inside frame -->
+    <div class="overlay-top"></div>
+    <div class="overlay-bottom"></div>
+    <div class="overlay-left"></div>
+    <div class="overlay-right"></div>
+
+    <!-- Center clickable area -->
+    <div class="clickable-center"></div>
+  </div>
 
 </body>
 </html>
