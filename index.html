@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Rotated Video with Border & Clickable Center</title>
+<title>Rotated Video with Black Border</title>
 <style>
   html, body {
     margin: 0;
@@ -14,7 +14,7 @@
     background: #000; /* black background */
   }
 
-  /* Video wrapper with rotation */
+  /* Video wrapper with rotation and black border */
   .video-wrapper {
     position: fixed;
     top: 50%;
@@ -23,83 +23,29 @@
     height: 120vw;
     transform: translate(-50%, -50%) rotate(90deg);
     transform-origin: center center;
-    background: #000; /* ensures black border outside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000; /* black border around video */
   }
 
+  /* Video frame smaller than wrapper to show black border */
   iframe {
-    width: 100%;
-    height: 100%;
+    width: 90%;    /* smaller than wrapper to show black outside */
+    height: 90%;
     border: none;
     display: block;
-  }
-
-  /* Overlays to block clicks outside center */
-  .overlay {
-    position: absolute;
-    background: rgba(0,0,0,0); /* transparent but blocks clicks */
-    z-index: 2;
-    pointer-events: auto;
-  }
-
-  /* Top overlay */
-  .overlay-top {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 10%; /* top border */
-  }
-
-  /* Bottom overlay (smaller) */
-  .overlay-bottom {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5%; /* smaller bottom border */
-  }
-
-  /* Left overlay */
-  .overlay-left {
-    top: 10%;
-    left: 0;
-    width: 10%;
-    height: 85%; /* leaves center clickable */
-  }
-
-  /* Right overlay */
-  .overlay-right {
-    top: 10%;
-    right: 0;
-    width: 10%;
-    height: 85%;
-  }
-
-  /* Center clickable area */
-  .clickable-center {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 85%;
-    pointer-events: none; /* clicks pass through to iframe */
-    z-index: 3;
   }
 </style>
 </head>
 <body>
+
   <div class="video-wrapper">
     <iframe
       src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f"
       allowfullscreen>
     </iframe>
-
-    <!-- Overlays to block clicks outside center -->
-    <div class="overlay overlay-top"></div>
-    <div class="overlay overlay-bottom"></div>
-    <div class="overlay overlay-left"></div>
-    <div class="overlay overlay-right"></div>
-
-    <!-- Center clickable area -->
-    <div class="clickable-center"></div>
   </div>
+
 </body>
 </html>
