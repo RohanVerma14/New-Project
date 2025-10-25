@@ -14,7 +14,7 @@
     background: #000;
   }
 
-  /* Video wrapper with rotation for desktop */
+  /* Video wrapper rotated 90deg always */
   .video-wrapper {
     position: fixed;
     top: 50%;
@@ -29,9 +29,9 @@
     background: #000; 
   }
 
-  /* Video frame for desktop */
+  /* Video frame */
   iframe {
-    width: 120vh;   /* keeps same as your previous size */
+    width: 120vh;   /* keeps rotation sizing */
     height: 120vw;
     border: none;
     display: block;
@@ -60,16 +60,13 @@
     z-index: 3;
   }
 
-  /* Mobile styles */
+  /* Mobile adjustments: keep rotation but maximize video inside screen */
   @media (max-width: 768px) {
-    .video-wrapper {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
     iframe {
-      width: 95vw;  /* bigger width on mobile */
-      height: 95vh; /* bigger height on mobile */
+      width: 95vh;  /* fills height due to rotation */
+      height: 95vw;
     }
-    /* Remove overlays on mobile for full screen clicks */
+    /* Remove overlays on mobile for full clickable center */
     .overlay, .clickable-center { display: none; }
   }
 </style>
@@ -85,12 +82,4 @@
     <!-- Overlays for desktop -->
     <div class="overlay overlay-top"></div>
     <div class="overlay overlay-bottom"></div>
-    <div class="overlay overlay-left"></div>
-    <div class="overlay overlay-right"></div>
-
-    <!-- Center clickable for desktop -->
-    <div class="clickable-center"></div>
-  </div>
-
-</body>
-</html>
+    <div
