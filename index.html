@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Full Screen Rotated Video with Black Borders</title>
+<title>Full Screen Rotated Video</title>
 <style>
   html, body {
     margin: 0;
@@ -11,47 +11,36 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background: #000; /* ensures black behind video */
+    background: #000;
   }
 
   .video-wrapper {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
-    background: #000; /* black background */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .video-frame {
-    width: 90%;   /* slightly smaller than container to show left/right black */
-    height: 90%;  /* slightly smaller to show top/bottom black */
-    transform: rotate(90deg);
+    width: 120vh;   /* make slightly larger to cover all screen on rotation */
+    height: 120vw;
+    transform: translate(-50%, -50%) rotate(90deg);
     transform-origin: center center;
-    border: 5px solid black; /* optional extra border */
-    box-sizing: border-box;
   }
 
   iframe {
+    position: absolute;
+    top: 20%;
+    left: 20%;
     width: 100%;
     height: 100%;
-    border: none;
-    display: block;
+    border: 10;
   }
 </style>
 </head>
 <body>
   <div class="video-wrapper">
-    <div class="video-frame">
-      <iframe 
-        src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f" 
-        allowfullscreen>
-      </iframe>
-    </div>
+    <iframe
+      src="https://www.youtube.com/embed/nj-bBUrox4k?si=ziLkwpByeafOTU9f"
+      allowfullscreen>
+    </iframe>
   </div>
 </body>
 </html>
+
